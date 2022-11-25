@@ -3,11 +3,11 @@ import React from 'react';
 
 class DefaultCell extends React.Component {
   componentDidMount() {
-    console.log("Cell mounted");
+    // console.log("Cell mounted");
   }
 
   componentWillUnmount() {
-    console.log("Cell unmounted");
+    // console.log("Cell unmounted");
   }
 
   render() {

@@ -91,22 +91,28 @@ function PendingCellDecorator(Component) {
                     columnIndex: props.columnIndex,
                 })
             }
+
+            return null;
         }
         componentDidUpdate() {
             const currentPendingRevision = this.state.pendingRevision;
-            setTimeout(() => {
-                if (currentPendingRevision === this.state.pendingRevision) {
-                    this.setState({ pending: false });
-                }
-            }, 1250)
+            if (this.state.pending) {
+                setTimeout(() => {
+                    if (currentPendingRevision === this.state.pendingRevision) {
+                        this.setState({ pending: false });
+                    }
+                }, 1250)
+            }
         }
         componentDidMount() {
             const currentPendingRevision = this.state.pendingRevision;
-            setTimeout(() => {
-                if (currentPendingRevision === this.state.pendingRevision) {
-                    this.setState({ pending: false });
-                }
-            }, 1250)
+            if (this.state.pending) {
+                setTimeout(() => {
+                    if (currentPendingRevision === this.state.pendingRevision) {
+                        this.setState({ pending: false });
+                    }
+                }, 1250)
+            }
         }
         render() {
             let loadingIndicator = null;
@@ -150,7 +156,7 @@ function compose(fn, var_args) {
 };
 
 const DefaultDecorations = compose(
-    PendingCellDecorator,
+    // PendingCellDecorator,
     ClassNameDecorator,
     BgCellDecorator,
     TooltipCellDecorator,
@@ -158,7 +164,7 @@ const DefaultDecorations = compose(
 )
 
 const OtherDecorations = compose(
-    PendingCellDecorator,
+    // PendingCellDecorator,
     BorderCellDecorator,
     TooltipCellDecorator,
     HoverActionCellDecorator,

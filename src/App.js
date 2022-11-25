@@ -8,17 +8,20 @@ import { CellFactory as CellFactoryHooks } from './cells/cell-hooks';
 import { useState } from 'react';
 
 const CellFactories = [
-  ["HoC", CellFactoryHoC],
   ["Hooks", CellFactoryHooks],
+  ["HoC", CellFactoryHoC],
 ];
+
+const ROW_COUNT = 1000;
+const COLUMN_COUNT = 1000;
 
 function App() {
   const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
   const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
 
   const [cellFactoryIndex, setCellFactoryIndex] = useState(0);
-  console.log(CellFactories, cellFactoryIndex)
   const [currentCellFactoryName, CurrentCellFactory] = CellFactories[cellFactoryIndex];
+  
   const CellFactorySwitchButton = () => {
     return <button onClick={() => setCellFactoryIndex((cellFactoryIndex + 1) % CellFactories.length)}>
       {currentCellFactoryName}
@@ -27,13 +30,13 @@ function App() {
 
   return (
     <Table
-      rowsCount={1000}
+      rowsCount={ROW_COUNT}
       rowHeight={50}
       headerHeight={50}
       width={vw}
       height={vh}
       stopScrollDefaultHandling={true}
-      scrollableColumnsCount={1000}
+      scrollableColumnsCount={COLUMN_COUNT}
       getScrollableColumn={(i) => {
         return {
           columnKey: i,
