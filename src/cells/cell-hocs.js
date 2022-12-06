@@ -156,7 +156,7 @@ function compose(fn, var_args) {
 };
 
 const DefaultDecorations = compose(
-    // PendingCellDecorator,
+    PendingCellDecorator,
     ClassNameDecorator,
     BgCellDecorator,
     TooltipCellDecorator,
@@ -164,7 +164,7 @@ const DefaultDecorations = compose(
 )
 
 const OtherDecorations = compose(
-    // PendingCellDecorator,
+    PendingCellDecorator,
     BorderCellDecorator,
     TooltipCellDecorator,
     HoverActionCellDecorator,

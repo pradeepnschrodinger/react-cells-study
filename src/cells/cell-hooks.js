@@ -77,6 +77,7 @@ function usePending(props, Component) {
         setRowIndex(props.rowIndex);
         setColumnIndex(props.columnIndex);
         setPending(true);
+        pendingRevisionObj.counter++;
     }
 
     useEffect(() => {
@@ -119,7 +120,7 @@ function usePending(props, Component) {
 }
 
 const defaultDecorations = [
-    // usePending,
+    usePending,
     useClassName,
     useBg,
     useTooltip,
@@ -127,7 +128,7 @@ const defaultDecorations = [
 ]
 
 const otherDecorations = [
-    // usePending,
+    usePending,
     useBorder,
     useTooltip,
     useHoverAction,
