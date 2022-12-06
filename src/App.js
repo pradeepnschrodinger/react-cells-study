@@ -6,17 +6,19 @@ import { FpsView } from 'react-fps';
 
 import { CellFactory as CellFactoryHoC } from './cells/cell-hocs';
 import { CellFactory as CellFactoryHooks } from './cells/cell-hooks';
+import { CellFactory as CellFactoryHooksRecycled } from './cells/cell-hooks-recycled';
 import { useEffect, useState } from 'react';
 
 const CellFactories = [
+  ["Hooks Recycled", CellFactoryHooksRecycled],
   ["HoC", CellFactoryHoC],
-  ["Hooks", CellFactoryHooks],
+  ["Hooks Basic", CellFactoryHooks],
 ];
 
 const ROW_COUNT = 1000;
 const COLUMN_COUNT = 1000;
-const CELL_WIDTH = 30;
-const CELL_HEIGHT = 30;
+const CELL_WIDTH = 50;
+const CELL_HEIGHT = 50;
 
 function App() {
   const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
