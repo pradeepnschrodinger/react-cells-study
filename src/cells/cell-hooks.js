@@ -69,7 +69,7 @@ function useBorder(props) {
 
 function usePending(props, Component) {
     const [pending, setPending] = useState(false);
-    const pendingRevisionObj = useRef({ counter: 0 });
+    const pendingRevisionObj = useRef(0);
     const [rowIndex, setRowIndex] = useState(null);
     const [columnIndex, setColumnIndex] = useState(null);
 
@@ -77,19 +77,19 @@ function usePending(props, Component) {
         setRowIndex(props.rowIndex);
         setColumnIndex(props.columnIndex);
         setPending(true);
-        pendingRevisionObj.counter++;
+        pendingRevisionObj.current++;
     }
 
     useEffect(() => {
-        const currentPendingRevision = pendingRevisionObj.counter;
+        const currentPendingRevision = pendingRevisionObj.current;
         if (pending) {
             setTimeout(() => {
-                if (pendingRevisionObj.counter === currentPendingRevision) {
+                if (pendingRevisionObj.current === currentPendingRevision) {
                     setPending(false);
                 }
             }, 1250);
         }
-    }, [pending]);
+    }, [pending, pendingRevisionObj.current]);
 
     let loadingIndicator = null;
     if (pending) {

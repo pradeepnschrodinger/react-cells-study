@@ -46,7 +46,8 @@ function App() {
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setScrollLeft(scrollLeft + CELL_WIDTH);
+      setScrollLeft(scrollLeft + CELL_WIDTH / 4);
+      // setScrollLeft(scrollLeft + 16);
     }, 16)
     return () => { clearInterval(intervalId) };
   }, [scrollLeft]);
