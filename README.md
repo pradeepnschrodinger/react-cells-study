@@ -1,3 +1,14 @@
+Feasibility study of different cell renderer systems in React.
+
+Spun off for [SS-38907](https://jira.schrodinger.com/browse/SS-38907).
+
+This is a template that automates scrolling in an FDT instance against multiple cell rendering systems.
+It's also hooked with a FPS counter.
+The main idea is to rapdily test different systems to determine their performance and maintainability.
+
+The work here has gotten stale at this point. 
+This could use a complete rewrite, especially against newer versions of FDT2.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
